@@ -8,6 +8,8 @@
 */.project
 */.settings
 */target
+*/.settings/*
+*/target/*
 
 pom.xml.tag
 pom.xml.releaseBackup
