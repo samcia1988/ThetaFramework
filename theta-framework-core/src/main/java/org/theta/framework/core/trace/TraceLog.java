@@ -5,14 +5,6 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.MDC;
 
-/**
- * 
- * @概述
- * @功能
- * @作者 陈望旭
- * @创建时间 2018年6月14日
- * @类调用特殊情况
- */
 public class TraceLog {
 	private Logger logger = null;
 	private String method = null;
