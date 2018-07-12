@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.theta.framework.core.lang.ErrorCode;
 import com.alibaba.fastjson.JSON;
 
 @RestController
+@ConfigurationProperties(prefix = "theta.cloud.producer")
 public class RemoteServiceProducerController implements ApplicationContextAware {
 
 	private static final Logger logger = LoggerFactory.getLogger(RemoteServiceProducerController.class);

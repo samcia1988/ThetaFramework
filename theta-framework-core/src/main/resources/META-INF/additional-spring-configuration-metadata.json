@@ -1,12 +1,12 @@
 {
 	"properties": [
 		{
-			"name": "nrxt.service-trace.threshold",
+			"name": "theta.service-trace.threshold",
 			"type": "java.lang.Long",
-			"description": "A description for 'nrxt.service-trace.threshold'"
+			"description": ""
 		},
 		{
-			"name": "nrxt.service-trace.filterParams",
+			"name": "theta.service-trace.filterParams",
 			"type": "java.util.List",
 			"description": ""
 		}

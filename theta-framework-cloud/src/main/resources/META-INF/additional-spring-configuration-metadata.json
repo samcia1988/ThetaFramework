@@ -1,0 +1,14 @@
+{
+	"properties": [
+		{
+			"name": "theta.cloud.producer.producerClasses",
+			"type": "java.util.List",
+			"description": ""
+		},
+		{
+			"name": "theta.cloud.consumer.consumerClasses",
+			"type": "java.util.Map",
+			"description": ""
+		}
+	]
+}

@@ -1,4 +1,4 @@
-package org.theta.framework.core.trace;
+package org.theta.framework.cloud;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Import;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@Import(ServiceTraceInterceptor.class)
-public @interface EnableServiceTrace {
+@Import(RemoteServiceConsumerConfig.class)
+public @interface EnableCloudConsumer {
 
 }
