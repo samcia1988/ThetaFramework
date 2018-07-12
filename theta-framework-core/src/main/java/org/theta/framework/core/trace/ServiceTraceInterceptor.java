@@ -11,6 +11,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.annotation.Order;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
@@ -24,13 +25,15 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 
 @Aspect
 @Order(-99)
+@ConfigurationProperties(prefix = "theta.service-trace")
 public class ServiceTraceInterceptor {
 	private static final Logger logger = LoggerFactory.getLogger(ServiceTraceInterceptor.class);
 	private long threshold = 1000L;
+	private List<String> filterParams = null;
 	private String[] filterArgs;
 	private String[] filterSuffix;
 
-	public static ServiceTraceInterceptor getInstance(long threshold, String[] filterArgs, String[] filterSuffix) {
+	public static ServiceTraceInterceptor getInstance(long threshold, String[] filterArgs) {
 		ServiceTraceInterceptor sti = new ServiceTraceInterceptor();
 		sti.setThreshold(threshold);
 		sti.setFilterArgs(filterArgs);
@@ -69,6 +72,9 @@ public class ServiceTraceInterceptor {
 
 	@Around(value = "within(@org.theta.framework.core.trace.ServiceTrace *)")
 	public Object invoke(ProceedingJoinPoint pjp) throws Throwable {
+		if (this.filterParams != null && filterArgs == null) {
+			this.setFilterArgs(filterParams.toArray(new String[0]));
+		}
 		Method method = ((MethodSignature) pjp.getSignature()).getMethod();
 		Object target = pjp.getThis();
 		Object result = null;

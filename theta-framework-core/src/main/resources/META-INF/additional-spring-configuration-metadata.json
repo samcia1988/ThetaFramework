@@ -1,0 +1,14 @@
+{
+	"properties": [
+		{
+			"name": "nrxt.service-trace.threshold",
+			"type": "java.lang.Long",
+			"description": "A description for 'nrxt.service-trace.threshold'"
+		},
+		{
+			"name": "nrxt.service-trace.filterParams",
+			"type": "java.util.List",
+			"description": ""
+		}
+	]
+}
