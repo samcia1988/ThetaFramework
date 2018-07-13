@@ -29,6 +29,12 @@ public class RemoteServiceInvocationHandler implements InvocationHandler {
 	@Override
 	public Object invoke(Object obj, Method method, Object[] args) throws Throwable {
 		String methodName = method.getName();
+		if (methodName.equals("hashCode") && (args == null || args.length == 0)) {
+			return this.hashCode();
+		}
+		if (methodName.equals("toString") && (args == null || args.length == 0)) {
+			return obj.getClass().getName() + "@remote";
+		}
 		Class<?> resultType = method.getReturnType();
 		Object result = this.restTemplate.postForObject(
 				"http://" + serviceName + "/remoteInvoke/" + extServiceName + "/" + methodName, args, resultType);
