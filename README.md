@@ -119,3 +119,5 @@ ServiceTrace的使用方法非常简单，只需两步：
 目前我们使用jasypt的解决方案(外部包)，同时加解密算法使用同一的SM4(公司内部实现),只需要在SpringBoot的启动类类描述注解中添加`@EnableJasyptForSM4`注解即可，然后在配置文件需要加密的配置项中使用加密后的配置并用`ENC()`包裹即可。
 
 > 目前开源包内暂时不集成SM4算法，需要使用直接接入Jasypt即可。
+
+@author Ranger Chen
